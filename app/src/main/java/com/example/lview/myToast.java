@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 public class myToast extends AppCompatActivity {
     Button btoast;
+    String [] Colors = {"Red", "Green", "Blue"};
     Button alert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,7 @@ public class myToast extends AppCompatActivity {
                         });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();*/
-                AlertDialog.Builder builder = new AlertDialog.Builder(myToast.this);
+               /* AlertDialog.Builder builder = new AlertDialog.Builder(myToast.this);
                         builder.setIcon(R.drawable.ic_launcher_foreground)
                         .setTitle("Test Dialog")
                         .setMessage("Do you want to leave us")
@@ -89,7 +90,17 @@ public class myToast extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Click Leave to close and Stay to cancel",
                                         Toast.LENGTH_LONG).show();
                             }
-                        }).show();
+                        }).show();*/
+                AlertDialog.Builder builder = new AlertDialog.Builder(myToast.this);
+                builder.setTitle("SetColor")
+                        .setItems(Colors, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(myToast.this, Colors[which], Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
             }
         });
     }
