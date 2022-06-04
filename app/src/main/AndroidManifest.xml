@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LView">
         <activity
-            android:name=".Toast"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".myToast"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
