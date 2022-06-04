@@ -43,7 +43,7 @@ public class myToast extends AppCompatActivity {
         alert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                /*AlertDialog.Builder builder = new AlertDialog.Builder(myToast.this);
                 builder.setMessage("Message you want to show");
                 builder.setTitle("Alert !");
                 builder.setCancelable(false);
@@ -53,7 +53,7 @@ public class myToast extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int asdf)
                             {
-                                finish();
+                                finish(); //close the app
                             }
                         });
                 builder.setNegativeButton(
@@ -66,7 +66,30 @@ public class myToast extends AppCompatActivity {
                             }
                         });
                 AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+                alertDialog.show();*/
+                AlertDialog.Builder builder = new AlertDialog.Builder(myToast.this);
+                        builder.setIcon(R.drawable.ic_launcher_foreground)
+                        .setTitle("Test Dialog")
+                        .setMessage("Do you want to leave us")
+                        .setPositiveButton("Leave", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Stay", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNeutralButton("What up", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplicationContext(), "Click Leave to close and Stay to cancel",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        }).show();
             }
         });
     }
