@@ -50,7 +50,7 @@ public class myToast extends AppCompatActivity {
         alert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(myToast.this);
+               /* AlertDialog.Builder builder = new AlertDialog.Builder(myToast.this);
                 builder.setTitle("Select options").setMultiChoiceItems(Colors, null,
                         new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
@@ -77,6 +77,22 @@ public class myToast extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(myToast.this, "No Option Selected", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();*/
+                AlertDialog.Builder builder = new AlertDialog.Builder(myToast.this);
+                LayoutInflater inflater = myToast.this.getLayoutInflater();
+                builder.setView(inflater.inflate(R.layout.sign_in_view, null))
+// Add action buttons
+                        .setPositiveButton("Sign In", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+// sign in the user ...
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
                             }
                         });
                 AlertDialog dialog = builder.create();
