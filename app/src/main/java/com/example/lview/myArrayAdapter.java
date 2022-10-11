@@ -25,13 +25,15 @@ public class myArrayAdapter extends ArrayAdapter<Student> {
         convertView = LayoutInflater.from(getContext()).inflate(R.layout.student_view,parent,
                 false);
         TextView name = convertView.findViewById(R.id.textView);
-        TextView id = convertView.findViewById(R.id.textView2);
+        TextView rollNo = convertView.findViewById(R.id.textView2);
         TextView section = convertView.findViewById(R.id.textView3);
-        ImageView imgview = convertView.findViewById(R.id.imageView);
+        TextView txt = convertView.findViewById(R.id.textView9);
+        txt.setText("Edit");
+//        ImageView imgview = convertView.findViewById(R.id.imageView);
         name.setText(student.getName());
-        id.setText(student.getId());
+        rollNo.setText(student.getRollNo());
         section.setText(student.getSection());
-        imgview.setImageResource(student.getImgid());
+//        imgview.setImageResource(student.getImgid());
         return convertView;
     }
 }
